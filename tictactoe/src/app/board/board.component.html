@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="board">
+  <ng-container *ngFor="let square of board(); let index = index">
+    <app-square [value]="square" (onClicked)="makeMove(index)"></app-square>
+  </ng-container>
+
+  <mat-card>
+    <mat-card-content>
+      <p *ngIf="!isWinner">
+        Turn of Player: {{ currentPlayer }}
+      </p>
+      <p *ngIf="isWinner">
+        Winner Player: {{ currentPlayer }}!
+      </p>
+
+      <button *ngIf="isWinner" mat-button (click)="restart()">
+        Restart
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>
